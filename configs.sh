@@ -23,11 +23,8 @@ shopt -s histappend
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # Aliases
-alias repos='cd /home/fish/Repos'
 alias reSource="source ~/.bashrc"
 alias sysUp='sudo dnf update ; echo "+++ dnf done updating :D" ; flatpak update ; echo "+++ flatpak done updating :D"'
-alias profile='zed ~/.bashrc'
-alias customProfile='zed /home/fish/Repos/linux-configs/configs.sh'
 
 # Coding aliases
 alias biomize="pnpm add -D -E @biomejs/biome"

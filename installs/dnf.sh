@@ -1,17 +1,31 @@
 #!/bin/bash
 # This commands assume that the distro being use is Fedora or fedora based
-# Run `chmod u+x developer.sh`
 # And then `sh developer.sh`
 # Install almost all the developer tools needed to do all the things
 
 echo "Today is " "$(date)"
-echo "Installing all the dev things"
+echo "Installing all the things"
 
 sudo dnf clean all
 sudo dnf -y update
 
+# Enable RPM fusion
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
+
 # Base
 sudo dnf install @c-development @virtualization @development-tools mscore-fonts-all
+
+# All system install will be listed here
+sudo dnf install gparted \
+    gnome-disks \
+    fastfetch \
+    steam \
+    fastfetch \
+    -y
+
+# Brave
+curl -fsS https://dl.brave.com/install.sh | sh
 
 # vscodium
 sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
@@ -20,12 +34,6 @@ sudo dnf install codium
 
 # zed
 curl -f https://zed.dev/install.sh | sh
-
-# vscode
-# sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-# echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo >/dev/null
-# dnf check-update
-# sudo dnf install code
 
 # Download and install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -43,10 +51,6 @@ npm install -g typescript
 # npm install -g yo generator-code
 # npm install -g @vscode/vsce
 
-# pnpm
-curl -fsSL https://get.pnpm.io/install.sh | sh -
-# pnpm add -D @tauri-apps/cli@latest
-
 # Tauri dependencies
 sudo dnf check-update
 sudo dnf install webkit2gtk4.1-devel \
@@ -57,7 +61,3 @@ sudo dnf install webkit2gtk4.1-devel \
     libappindicator-gtk3-devel \
     librsvg2-devel \
     libxdo-devel
-
-# biome binary
-# curl -L https://github.com/biomejs/biome/releases/download/@biomejs/biome@2.2.6/biome-linux-x64 -o biome
-# chmod +x biome
