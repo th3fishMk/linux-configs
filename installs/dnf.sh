@@ -10,7 +10,7 @@ sudo dnf clean all
 sudo dnf -y update
 
 # Enable RPM fusion
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm
 sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
 
 # Base
@@ -19,7 +19,6 @@ sudo dnf install @c-development @virtualization @development-tools mscore-fonts-
 # All system install will be listed here
 sudo dnf install gparted \
     gnome-disks \
-    fastfetch \
     steam \
     fastfetch \
     -y

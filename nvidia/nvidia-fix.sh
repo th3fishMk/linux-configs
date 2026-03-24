@@ -1,5 +1,5 @@
 #!/bin/bash
-# run this command to fix nvidia-wayland error on tauri apps (and probaly some other things)
+# run this command to fix nvidia-wayland error on tauri apps (and probably some other things)
 # cd to the current dir, and then
 # run `sh nvidia-fix.sh`
 

@@ -29,9 +29,6 @@ alias sysUp='sudo dnf update ; echo "+++ dnf done updating :D" ; flatpak update 
 # Coding aliases
 alias biomize="pnpm add -D -E @biomejs/biome"
 
-# Exports
-# export PATH="/mnt/stuff/repos/th3fishMk/fedscripts/scripts:$PATH"
-
 parse_git_branch() {
     git rev-parse --is-inside-work-tree &>/dev/null || return
 

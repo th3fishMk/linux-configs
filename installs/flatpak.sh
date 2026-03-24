@@ -1,6 +1,6 @@
 #!/bin/bash
-# flatpack
-# run `sh ./flatpacks.sh` to install all the following programs
+# flatpak
+# run `sh ./flatpak.sh` to install all the following programs
 
 flatpak install -y flathub com.belmoussaoui.Authenticator
 flatpak install -y flathub com.belmoussaoui.Decoder
