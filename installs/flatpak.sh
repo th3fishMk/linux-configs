@@ -10,6 +10,8 @@ flatpak install -y flathub org.inkscape.Inkscape
 flatpak install -y flathub org.kde.haruna
 flatpak install -y flathub org.kde.krita
 flatpak install -y flathub org.onlyoffice.desktopeditors
+flatpak install -y flathub com.discordapp.Discord
+flatpak install -y flathub org.jousse.vincent.Pomodorolm
 
 # The following apps are excluded for whatever reason
 

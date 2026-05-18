@@ -4,7 +4,7 @@
 # Install almost all the developer tools needed to do all the things
 
 echo "Today is " "$(date)"
-echo "Installing all the things"
+echo "Installing all the things..."
 
 sudo dnf clean all
 sudo dnf -y update
@@ -21,6 +21,7 @@ sudo dnf install gparted \
     gnome-disks \
     steam \
     fastfetch \
+    blender \
     -y
 
 # Brave
@@ -60,3 +61,7 @@ sudo dnf install webkit2gtk4.1-devel \
     libappindicator-gtk3-devel \
     librsvg2-devel \
     libxdo-devel
+
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+sudo dnf install code
