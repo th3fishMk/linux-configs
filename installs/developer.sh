@@ -13,7 +13,9 @@ sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
 # Install essential dev libs, virtualization, and base system tools
 sudo dnf install -y @c-development @virtualization @development-tools \
     mscore-fonts-all gparted gnome-disks fastfetch openssl-devel \
-    curl wget file htop tldr jq shellcheck
+    curl wget file htop tldr jq shellcheck \
+    webkit2gtk4.1-devel libappindicator-gtk3-devel librsvg2-devel \
+    libxdo-devel
 
 # @c-development: Group package installing the GCC C compiler, standard headers, and glibc libraries.
 # @virtualization: Group package installing QEMU, KVM, and libvirt tools to run hardware-accelerated virtual machines.
@@ -39,5 +41,9 @@ curl -f https://zed.dev/install.sh | sh
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+cargo install create-tauri-app --locked
+
+# Create a tauri app:
+# cargo create-tauri-app
 
 echo -e "\n========================================================="
