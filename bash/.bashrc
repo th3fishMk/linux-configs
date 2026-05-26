@@ -1,12 +1,27 @@
-# shellcheck disable=SC2148
-# This file is sourced at ~/.bashrc with the following lines
-# if [ -f /path/to/this/file ]; then
-#     . /path/to/this/file
-# fi
-# This is my personal custom bashrc
-# The way I like, the way I enjoy.
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
 
-# [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)" # SSH stuff
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+. "$HOME/.cargo/env"
 
 #
 # Enable incremental history search with up/down arrows
@@ -21,13 +36,6 @@ shopt -s histappend
 
 # Save after each command (so multiple terminals share history)
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-
-# Aliases
-alias reSource="source ~/.bashrc"
-alias sysUp='sudo dnf update ; echo "+++ dnf done updating :D" ; flatpak update ; echo "+++ flatpak done updating :D"'
-
-# Coding aliases
-alias biomize="pnpm add -D -E @biomejs/biome"
 
 parse_git_branch() {
     git rev-parse --is-inside-work-tree &>/dev/null || return
@@ -59,7 +67,6 @@ parse_git_branch() {
     echo "$branch|$localpath|$state|$symbol"
 }
 
-# shellcheck disable=SC2154
 export PS1='\[\033[0;32m\]\u@\h\[\033[0m\]:\[\033[0;34m\]\W\[\033[0m\]$(\
 info=$(parse_git_branch); \
 if [ -n "$info" ]; then \
