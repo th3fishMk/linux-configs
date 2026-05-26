@@ -45,6 +45,16 @@ APPS=(
     "com.bitwarden.desktop"
     "org.audacityteam.Audacity"
     "fr.handbrake.HandBrake"
+    "se.sjoerd.Graphs"
+    "com.google.Chrome"
+    "page.codeberg.impromptux.ytdl-gui"
+    "cz.ondrejkolin.Barcoder"
+    "dev.lasheen.qr"
+    "com.belmoussaoui.Authenticator"
+    "io.github.fkinoshita.Telegraph"
+    "com.oyajun.ColorCode"
+    "com.rafaelmardojai.Blanket"
+    "page.codeberg.lo_vely.Nucleus"
 )
 
 # Loop through and install each application sequentially

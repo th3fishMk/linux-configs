@@ -99,6 +99,12 @@ parse_git_branch() {
     echo "$branch|$localpath|$state|$symbol"
 }
 
+# Add custom dotfiles bin directory to the system PATH
+if [ -d "$HOME/.dotfiles/bin" ]; then
+    PATH="$HOME/.dotfiles/bin:$PATH"
+fi
+export PATH
+
 # Render prompt strings safely with optimized terminal coloring sequences
 build_prompt() {
     local exit_status=$?
