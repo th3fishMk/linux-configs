@@ -15,7 +15,7 @@ sudo dnf install -y @c-development @virtualization @development-tools \
     mscore-fonts-all gparted gnome-disks fastfetch openssl-devel \
     curl wget file htop tldr jq shellcheck \
     webkit2gtk4.1-devel libappindicator-gtk3-devel librsvg2-devel \
-    libxdo-devel
+    libxdo-devel golang
 
 # Brave Browser
 curl -fsS https://dl.brave.com/install.sh | sh
